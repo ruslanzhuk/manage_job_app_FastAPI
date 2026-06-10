@@ -1,0 +1,26 @@
+--CREATE TABLE IF NOT EXISTS employers (
+--    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+--    name VARCHAR(255) NOT NULL,
+--    email VARCHAR(255) UNIQUE NOT NULL,
+--    password VARCHAR(255) NOT NULL,
+--    number VARCHAR(20),
+--    city VARCHAR(100),
+--    company_name VARCHAR(100) DEFAULT NULL,
+--    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+--);
+--
+--CREATE TABLE IF NOT EXISTS employees (
+--    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+--    name VARCHAR(255) NOT NULL,
+--    email VARCHAR(255) UNIQUE NOT NULL,
+--    password VARCHAR(255) NOT NULL,
+--    number VARCHAR(20),
+--    city VARCHAR(100),
+--    skills TEXT DEFAULT NULL,
+--    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+--);
+--
+--
+--

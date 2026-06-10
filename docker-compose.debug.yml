@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./manage_job_app:/manage_job_app
+    command:
+      - "sh"
+      - "-c"
+      - |
+        pip install debugpy -t /tmp \
+        && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 \
+        -m uvicorn manage_job_app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - 8000:8000
+      - 5678:5678
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - backend
+    container_name: app
+
+  db:
+    image: postgres:17.0-alpine3.20
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    networks:
+      - backend
+    container_name: db
+    
+networks:
+  backend:
